@@ -73,4 +73,8 @@ public class Main {
         return summe;
     }
 
+    public static String concat(String[] elemente){
+        return null;
+    }
+
 }
