@@ -75,8 +75,10 @@ public class Main {
 
     public static String concat(String[] elemente){
         int i = 0;
+        int j = 0;
+        //fdg
+        //dfg
+        //dfg
         return null;
     }
-
-//    asdasda
 }
