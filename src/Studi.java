@@ -47,7 +47,9 @@ public class Studi {
     }
 
     public void einschreiben(Kurs kurs) {
-        this.kurse.add(kurs);
+        if (kurs.einschreiben()) {
+            this.kurse.add(kurs);
+        } else System.out.println("Einschreiben in Kurs " + kurs.getName() + " nicht möglich\n");
     }
 
     public void print() {
@@ -96,13 +98,14 @@ public class Studi {
         Studi studi2 = new Studi("Peter", 18, 3456);
         Studi studi3 = new Studi("Felix", 19, 6789);
 
-        Kurs alpro = new Kurs("AlPro", 1);
-        Kurs luds = new Kurs("LudS", 2);
-        Kurs ti = new Kurs("TI", 3);
+        Kurs alpro = new Kurs("AlPro", 1, 2);
+        Kurs luds = new Kurs("LudS", 2, 2);
+        Kurs ti = new Kurs("TI", 3, 2);
 
         studi1.einschreiben(alpro);
         studi1.einschreiben(luds);
         studi2.einschreiben(ti);
+        studi2.einschreiben(alpro);
         studi3.einschreiben(luds);
         studi3.einschreiben(ti);
         studi3.einschreiben(alpro);
