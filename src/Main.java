@@ -16,23 +16,27 @@ public class Main {
 //        System.out.println("fib: " + fib(n));
 //
 //        //3
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> eingaben = new ArrayList<>();
-        while (true) {
-            try {
-                int e = scanner.nextInt();
-                eingaben.add(e);
-                System.out.println("Neue Eingabe: " + eingaben.get(eingaben.size() - 1));
-            } catch (Exception e) {
-                break;
-            }
-        }
-        int[] eingabe_array = new int[eingaben.size()];
-        for (int i = 0; i < eingaben.size(); i++) {
-            eingabe_array[i] = eingaben.get(i);
-        }
-        System.out.println("Eingabe abgebrochen\n");
-        System.out.println("Summe: " + sum(eingabe_array, eingaben.size()));
+//        Scanner scanner = new Scanner(System.in);
+//        ArrayList<Integer> eingaben = new ArrayList<>();
+//        while (true) {
+//            try {
+//                int e = scanner.nextInt();
+//                eingaben.add(e);
+//                System.out.println("Neue Eingabe: " + eingaben.get(eingaben.size() - 1));
+//            } catch (Exception e) {
+//                break;
+//            }
+//        }
+//        int[] eingabe_array = new int[eingaben.size()];
+//        for (int i = 0; i < eingaben.size(); i++) {
+//            eingabe_array[i] = eingaben.get(i);
+//        }
+//        System.out.println("Eingabe abgebrochen\n");
+//        System.out.println("Summe: " + sum(eingabe_array, eingaben.size()));
+//
+        //4
+        String[] elemente = new String[]{"Hallo", " Ich", " Bins"};
+        System.out.println(concat(elemente));
     }
 
     //Übung 7:
@@ -65,6 +69,7 @@ public class Main {
         }
     }
 
+    //3
     public static int sum(int[] werte, int length) {
         int summe = 0;
         for (int i = 0; i < length; i++) {
@@ -73,9 +78,28 @@ public class Main {
         return summe;
     }
 
-    public static String concat(String[] elemente){
-        int i = 0;
-        int j = 0;
-        return null;
+    //4
+    public static String concat(String[] elemente) {
+        String result = "";
+        String[] satz = new String[2];
+
+        if (elemente[0].endsWith(" ") || elemente[1].startsWith(" ")){
+            satz[0] = elemente[0] + elemente[1];
+            if (elemente[2] == null) return result;
+            satz[1] = elemente[2];
+            concat(satz);
+            result = satz[1];
+        }
+
+
+//        for (int i = 0; i < length; i++) {
+//            if (elemente[i].endsWith(" ") || elemente[i + 1].startsWith(" ")) {
+//                result = elemente[i] + elemente[i + 1];
+//            } else {
+//                result = elemente[i] + " " + elemente[i + 1];
+//                concat(satz,2);
+//            }
+//        }
+        return result;
     }
 }
