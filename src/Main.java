@@ -73,4 +73,9 @@ public class Main {
         return summe;
     }
 
+    public static String concat(String[] elemente){
+        int i = 0;
+        return null;
+    }
+
 }
