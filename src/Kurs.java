@@ -44,7 +44,7 @@ public class Kurs {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         int nummer = scanner.nextInt();
-        Kurs meinKurs = new Kurs(name, nummer,2);
+        Kurs meinKurs = new Kurs(name, nummer, 2);
         meinKurs.print();
     }
 }
