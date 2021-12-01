@@ -38,30 +38,24 @@ public class Main {
 //        System.out.println("Summe: " + sum(eingabe_array));
 
         //4
-        String[] elemente = new String[]{"Hallo", " Ich", " Bins"," und "," du"};
+        String[] elemente = new String[]{"Hallo", " Ich", " Bins", " und ", " du"};
         System.out.println(concat(elemente));
     }
 
     //Übung 7:
     //1
-    public static double calculate(double op1, double op2, String operator) {
-        if (operator.equals("+")) {
-            return (op1 + op2);
-        }
-        if (operator.equals("-")) {
-            return (op1 - op2);
-        }
-        if (operator.equals("*")) {
-            return (op1 * op2);
-        }
-        if (operator.equals("/")) {
-            return (op1 / op2);
-        }
-        if (operator.equals("%")) {
-            return (op1 % op2);
-        } else System.out.println("Kein gueltiger Operator");
-        return 0;
+    public static double calculate(double op1, double op2, Operator operator) throws Exception {
+        return
+                switch (operator) {
+                    case PLUS -> op1 + op2;
+                    case MINUS -> op1 - op2;
+                    case MAL -> op1 * op2;
+                    case GETEILT -> op1 / op2;
+                    case MODULO -> op1 % op2;
+                    default -> throw new Exception("Kein gueltiger Operator");
+                };
     }
+
 
     //2
     public static int fib(int n) {
@@ -85,11 +79,10 @@ public class Main {
     public static String concat(String[] elemente) {
         String result = elemente[0];
         for (int i = 0; i < elemente.length - 1; i++) {
-            if (elemente[i].endsWith(" ") || elemente[i+1].startsWith(" ")) {
-                result += elemente[i+1];
-            }
-            else{
-                result += " " + elemente[i+1];
+            if (elemente[i].endsWith(" ") || elemente[i + 1].startsWith(" ")) {
+                result += elemente[i + 1];
+            } else {
+                result += " " + elemente[i + 1];
             }
         }
         return result;
