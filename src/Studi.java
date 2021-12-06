@@ -47,9 +47,13 @@ public class Studi {
     }
 
     public void einschreiben(Kurs kurs) {
-        if (kurs.einschreiben()) {
+        if (kurs.einschreiben() && !this.kurse.contains(kurs)) {
             this.kurse.add(kurs);
-        } else System.out.println("Einschreiben in Kurs " + kurs.getName() + " nicht möglich\n");
+            kurs.setAnzahlEingeschrieben(kurs.getAnzahlEingeschrieben() + 1);
+        } else if (!kurs.einschreiben()) {
+            System.out.println("Einschreiben in Kurs " + kurs.getName() + " " + kurs.getNummer() + " nicht möglich - Kurs voll\n");
+        } else if (this.kurse.contains(kurs))
+            System.out.println("Einschreiben in Kurs " + kurs.getName() + " " + kurs.getNummer() + " nicht möglich - bereits eingeschrieben\n");
     }
 
     public void print() {
@@ -107,8 +111,12 @@ public class Studi {
         studi2.einschreiben(ti);
         studi2.einschreiben(alpro);
         studi3.einschreiben(luds);
+        studi2.einschreiben(ti);
         studi3.einschreiben(ti);
-        studi3.einschreiben(alpro);
+        studi1.einschreiben(ti);
+        studi1.einschreiben(ti);
+        studi1.einschreiben(ti);
+        studi1.einschreiben(ti);
 
         studi1.print();
         studi2.print();

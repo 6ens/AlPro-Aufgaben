@@ -28,6 +28,22 @@ public class Kurs {
         this.nummer = nummer;
     }
 
+    public int getAnzahlEingeschrieben() {
+        return anzahlEingeschrieben;
+    }
+
+    public void setAnzahlEingeschrieben(int anzahlEingeschrieben) {
+        this.anzahlEingeschrieben = anzahlEingeschrieben;
+    }
+
+    public int getMax_anzahlEingeschrieben() {
+        return max_anzahlEingeschrieben;
+    }
+
+    public void setMax_anzahlEingeschrieben(int max_anzahlEingeschrieben) {
+        this.max_anzahlEingeschrieben = max_anzahlEingeschrieben;
+    }
+
     public void print() {
         System.out.println("Name: " + this.name);
         System.out.println("Nummer: " + this.nummer);
@@ -35,7 +51,6 @@ public class Kurs {
 
     public boolean einschreiben() {
         if (max_anzahlEingeschrieben > anzahlEingeschrieben) {
-            anzahlEingeschrieben++;
             return true;
         } else return false;
     }
