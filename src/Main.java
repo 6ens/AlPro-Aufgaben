@@ -5,19 +5,19 @@ import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //1
-        Scanner scanner = new Scanner(System.in);
-        scanner.useLocale(Locale.ENGLISH);
-        double op1 = scanner.nextDouble();
-        double op2 = scanner.nextDouble();
-        String eingabe = scanner.next().replaceAll(" ", "");
-        System.out.println(op1 + " " + eingabe + " " + op2 + " = " + calculate(op1, op2, Operator.getEnum(eingabe)));
+//        //1
+//        Scanner scanner = new Scanner(System.in);
+//        scanner.useLocale(Locale.ENGLISH);
+//        double op1 = scanner.nextDouble();
+//        double op2 = scanner.nextDouble();
+//        String eingabe = scanner.next().replaceAll(" ", "");
+//        System.out.println(op1 + " " + eingabe + " " + op2 + " = " + calculate(op1, op2, Operator.getEnum(eingabe)));
 
 //        //2
 //        Scanner scanner = new Scanner(System.in);   //erstelle einen neuen "Scanner"
 //        int n = scanner.nextInt();                  //lies Text bis zum Zeilenumbruch
 //        System.out.println("fib: " + fib(n));
-//
+
 //        //3
 //        Scanner scanner = new Scanner(System.in);
 //        ArrayList<Integer> eingaben = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Main {
 //        System.out.println("Summe: " + sum(eingabe_array));
 
 //        //4
-//        String[] elemente = new String[]{"Hallo", " Ich", " Bins", " und ", " du"};
+//        String[] elemente = new String[]{"Das", "hier "," ist", " ein", " Test "};
 //        System.out.println(concat(elemente));
     }
 

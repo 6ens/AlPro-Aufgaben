@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TempOverWeek {
 
     public TempOverWeek(int[][] temperaturesOverTheWeek) {
@@ -5,8 +7,8 @@ public class TempOverWeek {
     }
 
     int[][] temperaturesOverTheWeek;
-    String wochentage[] = new String[7];
-    wochentage[0]="Montag"
+    String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
+
 
     public void minMaxTempTag(int tag) throws Exception {
         int maxWert = temperaturesOverTheWeek[tag][0];
@@ -23,8 +25,7 @@ public class TempOverWeek {
                 minWertStunde = stunde;
             }
         }
-        System.out.println(Wochentag.getString(tag) + ":\n" + "Min-Wert: " + minWert + " Grad " + ", Stunde " + minWertStunde + "\n" + "Max-Wert: " + maxWert + " Grad " + ", Stunde " + maxWertStunde + "\n");
-
+        System.out.println(wochentage[tag] + ":\n" + "Min-Wert: " + minWert + " Grad " + ", Stunde " + minWertStunde + "\n" + "Max-Wert: " + maxWert + " Grad " + ", Stunde " + maxWertStunde + "\n");
     }
 
     public void minMaxTempWoche() throws Exception {
@@ -48,8 +49,12 @@ public class TempOverWeek {
                 }
             }
         }
-        System.out.println("Woche:\n" + "Min-Wert: " + minWert + " Grad " + "Tag " + Wochentag.getString(minWertTag) + ", Stunde " + minWertStunde + "\n" + "Max-Wert: " + maxWert + " Grad " + "Tag " + Wochentag.getString(maxWertTag) + ", Stunde " + maxWertStunde + "\n");
+        System.out.println("Woche:\n" + "Min-Wert: " + minWert + " Grad, " + "Tag " + wochentage[minWertTag] + ", Stunde " + minWertStunde + "\n" + "Max-Wert: " + maxWert + " Grad, " + "Tag " + wochentage[maxWertTag] + ", Stunde " + maxWertStunde + "\n");
+    }
 
+    public void avgTempTag(int tag) {
+        double avgTemp = Arrays.stream(temperaturesOverTheWeek[tag]).sum() / temperaturesOverTheWeek[tag].length;
+        System.out.println("Durchschnittstemperatur " + wochentage[tag] + ": " + avgTemp + " Grad");
     }
 
     public static void main(String[] args) throws Exception {
@@ -65,5 +70,6 @@ public class TempOverWeek {
 
         TempOverWeek t = new TempOverWeek(temperaturesOverTheWeek);
         t.minMaxTempWoche();
+        t.avgTempTag(3);
     }
 }
