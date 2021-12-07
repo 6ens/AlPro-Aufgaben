@@ -57,6 +57,15 @@ public class TempOverWeek {
         System.out.println("Durchschnittstemperatur " + wochentage[tag] + ": " + avgTemp + " Grad");
     }
 
+    public void avgTempWoche() {
+        int summe = 0;
+        for (int tag = 0; tag < 7; tag++) {
+            summe += Arrays.stream(temperaturesOverTheWeek[tag]).sum();
+        }
+        double avgTemp = summe / (temperaturesOverTheWeek.length * temperaturesOverTheWeek[0].length);
+        System.out.println("Durchschnittstemperatur Woche: " + avgTemp + " Grad");
+    }
+
     public static void main(String[] args) throws Exception {
         int[][] temperaturesOverTheWeek = {
                 {16, 16, 16, 16, 16, 16, 16, 18, 19, 23, 28, 28, 28, 29, 28, 28, 30, 31, 28, 24, 20, 19, 18, 15},
@@ -71,5 +80,6 @@ public class TempOverWeek {
         TempOverWeek t = new TempOverWeek(temperaturesOverTheWeek);
         t.minMaxTempWoche();
         t.avgTempTag(3);
+        t.avgTempWoche();
     }
 }
