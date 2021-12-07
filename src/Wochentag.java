@@ -1,7 +1,7 @@
 public enum Wochentag {
     MONTAG,DIENSTAG,MITTWOCH,DONNERSTAG,FREITAG,SAMSTAG,SONNTAG;
 
-    public static String getEnum (int wochentag) throws Exception{
+    public static String getString (int wochentag) throws Exception{
         return
                 switch (wochentag){
                     case 0 -> "MONTAG";

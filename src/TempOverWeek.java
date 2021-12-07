@@ -1,22 +1,19 @@
-import java.sql.Array;
-
 public class TempOverWeek {
-    int[][] temperaturesOverTheWeek = {
-            {16, 16, 16, 16, 16, 16, 16, 18, 19, 23, 28, 28, 28, 29, 28, 28, 30, 31, 28, 24, 20, 19, 18, 15},
-            {14, 16, 16, 16, 16, 16, 17, 18, 19, 23, 28, 28, 28, 29, 32, 28, 30, 31, 28, 24, 20, 19, 18, 17},
-            {16, 16, 16, 16, 16, 16, 17, 18, 19, 23, 28, 28, 28, 29, 28, 28, 30, 31, 28, 24, 18, 12, 8, 4},
-            {-2, 2, 8, 12, 14, 16, 17, 18, 19, 18, 18, 18, 18, 19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17},
-            {16, 16, 16, 16, 16, 16, 17, 18, 19, 23, 28, 28, 28, 31, 28, 28, 30, 31, 28, 24, 20, 19, 18, 17},
-            {16, 16, 16, 16, 16, 16, 18, 18, 19, 23, 28, 29, 28, 29, 28, 28, 30, 31, 28, 24, 20, 19, 18, 16},
-            {9, 9, 9, 9, 9, 9, 9, 12, 14, 20, 25, 28, 33, 34, 33, 32, 31, 31, 28, 24, 20, 19, 18, 17}
-    };
 
-    public void minMaxTempTag(int tag) throws Exception{
+    public TempOverWeek(int[][] temperaturesOverTheWeek) {
+        this.temperaturesOverTheWeek = temperaturesOverTheWeek;
+    }
+
+    int[][] temperaturesOverTheWeek;
+    String wochentage[] = new String[7];
+    wochentage[0]="Montag"
+
+    public void minMaxTempTag(int tag) throws Exception {
         int maxWert = temperaturesOverTheWeek[tag][0];
         int maxWertStunde = 0;
         int minWert = temperaturesOverTheWeek[tag][0];
         int minWertStunde = 0;
-        for (int stunde = 0; stunde < 23; stunde++) {
+        for (int stunde = 0; stunde < 24; stunde++) {
             if (temperaturesOverTheWeek[tag][stunde] > maxWert) {
                 maxWert = temperaturesOverTheWeek[tag][stunde];
                 maxWertStunde = stunde;
@@ -26,12 +23,47 @@ public class TempOverWeek {
                 minWertStunde = stunde;
             }
         }
-        switch (tag){
-            case Wochentag.getEnum(tag) -> System.out.println("")
-        }
+        System.out.println(Wochentag.getString(tag) + ":\n" + "Min-Wert: " + minWert + " Grad " + ", Stunde " + minWertStunde + "\n" + "Max-Wert: " + maxWert + " Grad " + ", Stunde " + maxWertStunde + "\n");
+
     }
 
-    public static void main(String[] args) {
+    public void minMaxTempWoche() throws Exception {
+        int maxWert = temperaturesOverTheWeek[0][0];
+        int maxWertStunde = 0;
+        int maxWertTag = 0;
+        int minWert = temperaturesOverTheWeek[0][0];
+        int minWertStunde = 0;
+        int minWertTag = 0;
+        for (int tag = 0; tag < 7; tag++) {
+            for (int stunde = 0; stunde < 24; stunde++) {
+                if (temperaturesOverTheWeek[tag][stunde] > maxWert) {
+                    maxWert = temperaturesOverTheWeek[tag][stunde];
+                    maxWertStunde = stunde;
+                    maxWertTag = tag;
+                }
+                if (temperaturesOverTheWeek[tag][stunde] < minWert) {
+                    minWert = temperaturesOverTheWeek[tag][stunde];
+                    minWertStunde = stunde;
+                    minWertTag = tag;
+                }
+            }
+        }
+        System.out.println("Woche:\n" + "Min-Wert: " + minWert + " Grad " + "Tag " + Wochentag.getString(minWertTag) + ", Stunde " + minWertStunde + "\n" + "Max-Wert: " + maxWert + " Grad " + "Tag " + Wochentag.getString(maxWertTag) + ", Stunde " + maxWertStunde + "\n");
 
+    }
+
+    public static void main(String[] args) throws Exception {
+        int[][] temperaturesOverTheWeek = {
+                {16, 16, 16, 16, 16, 16, 16, 18, 19, 23, 28, 28, 28, 29, 28, 28, 30, 31, 28, 24, 20, 19, 18, 15},
+                {14, 16, 16, 16, 16, 16, 17, 18, 19, 23, 28, 28, 28, 29, 32, 28, 30, 31, 28, 24, 20, 19, 18, 17},
+                {16, 16, 16, 16, 16, 16, 17, 18, 19, 23, 28, 28, 28, 29, 28, 28, 30, 31, 28, 24, 18, 12, 8, 4},
+                {-2, 2, 8, 12, 14, 16, 17, 18, 19, 18, 18, 18, 18, 19, 18, 18, 18, 18, 18, 18, 18, 18, 18, 17},
+                {16, 16, 16, 16, 16, 16, 17, 18, 19, 23, 28, 28, 28, 31, 28, 28, 30, 31, 28, 24, 20, 19, 18, 17},
+                {16, 16, 16, 16, 16, 16, 18, 18, 19, 23, 28, 29, 28, 29, 28, 28, 30, 31, 28, 24, 20, 19, 18, 16},
+                {9, 9, 9, 9, 9, 9, 9, 12, 14, 20, 25, 28, 33, 34, 33, 32, 31, 31, 28, 24, 20, 19, 18, 17}
+        };
+
+        TempOverWeek t = new TempOverWeek(temperaturesOverTheWeek);
+        t.minMaxTempWoche();
     }
 }
