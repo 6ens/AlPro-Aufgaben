@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class TempOverWeek {
 
@@ -66,6 +66,17 @@ public class TempOverWeek {
         System.out.println("Durchschnittstemperatur Woche: " + avgTemp + " Grad");
     }
 
+    public void setVal(String tag, int stunde, int wert) {
+        ArrayList<String> arr = new ArrayList<>(Arrays.asList(wochentage));
+        int tagInt = arr.indexOf(tag);
+        System.out.println(tagInt);
+        this.temperaturesOverTheWeek[tagInt][stunde] = wert;
+    }
+
+    public void setVals(String tag, int[] werte) {
+
+    }
+
     public static void main(String[] args) throws Exception {
         int[][] temperaturesOverTheWeek = {
                 {16, 16, 16, 16, 16, 16, 16, 18, 19, 23, 28, 28, 28, 29, 28, 28, 30, 31, 28, 24, 20, 19, 18, 15},
@@ -81,5 +92,8 @@ public class TempOverWeek {
         t.minMaxTempWoche();
         t.avgTempTag(3);
         t.avgTempWoche();
+        System.out.println(t.temperaturesOverTheWeek[0][0]);
+        t.setVal("Montag", 0, 7);
+        System.out.println(t.temperaturesOverTheWeek[0][0]);
     }
 }
