@@ -93,10 +93,11 @@ public class TempOverWeek {
         int[] neueWerte = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 
         TempOverWeek t = new TempOverWeek(temperaturesOverTheWeek);
+        t.minMaxTempTag(3);
         t.minMaxTempWoche();
         t.avgTempTag(3);
         t.avgTempWoche();
-        System.out.println(t.temperaturesOverTheWeek[0][0]);
+        System.out.println(t.temperaturesOverTheWeek[1][0]);
         t.setVal("Dienstag", 0, 7);
         System.out.println(t.temperaturesOverTheWeek[1][0]);
         t.setVals("Montag", neueWerte);

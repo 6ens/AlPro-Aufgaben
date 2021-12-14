@@ -13,10 +13,10 @@ public class Main {
 //        String eingabe = scanner.next().replaceAll(" ", "");
 //        System.out.println(op1 + " " + eingabe + " " + op2 + " = " + calculate(op1, op2, Operator.getEnum(eingabe)));
 
-//        //2
-//        Scanner scanner = new Scanner(System.in);   //erstelle einen neuen "Scanner"
-//        int n = scanner.nextInt();                  //lies Text bis zum Zeilenumbruch
-//        System.out.println("fib: " + fib(n));
+        //2
+        Scanner scanner = new Scanner(System.in);   //erstelle einen neuen "Scanner"
+        int n = scanner.nextInt();                  //lies Text bis zum Zeilenumbruch
+        System.out.println("fib: " + fib(n));
 
 //        //3
 //        Scanner scanner = new Scanner(System.in);
