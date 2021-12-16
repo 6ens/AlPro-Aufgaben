@@ -104,5 +104,18 @@ public class TempOverWeek {
         for (int stunde = 0; stunde < 24; stunde++) {
             System.out.print(t.temperaturesOverTheWeek[0][stunde] + " -> ");
         }
+
     }
 }
+
+
+//
+//    Scanner scanner = new Scanner(System.in);
+//        scanner.useLocale(Locale.ENGLISH);
+//                String eingabe_befehl = scanner.next();
+//                String eingabe_tag = scanner.next();
+//                int eingabe_stunde = scanner.nextInt();
+//                int eingabe_wert = scanner.nextInt();
+//                if(eingabe_befehl == "setVal"){
+//                t.setVal(eingabe_tag,eingabe_stunde,eingabe_wert);
+//                }
