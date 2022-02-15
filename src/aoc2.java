@@ -1005,27 +1005,29 @@ public class aoc2 {
 
         int x = 0;
         int y = 0;
+        int aim = 0;
 
         for (int i = 0; i < split.length; i++) {
-            if (split[i].contains("forward")){
-                x = x + split[i].charAt(split[i].length()-1);
-                System.out.println("f" + split[i].charAt(split[i].length()-1));
-            }
-            else if (split[i].contains("up")){
-                y = y - split[i].charAt(split[i].length()-1);
-                System.out.println("u" + split[i].charAt(split[i].length()-1));
-            }
-            else if (split[i].contains("down")){
-                y = y + split[i].charAt(split[i].length()-1);
-                System.out.println("d" + split[i].charAt(split[i].length()-1));
-            }
-            else {
+            int factor = (int)split[i].charAt(split[i].length() - 1) - '0';
+            if (split[i].contains("forward")) {
+                x = x + factor;
+                y = y + (aim * factor);
+                System.out.println(x + " "+ y + " " + aim + " f" + factor);
+            } else if (split[i].contains("up")) {
+                //y = y - factor;
+                aim = aim - factor;
+                System.out.println(x + " "+ y + " " + aim + " u" + factor);
+            } else if (split[i].contains("down")) {
+                //y = y + factor;
+                aim = aim + factor;
+                System.out.println(x + " "+ y + " " + aim + " d" + factor);
+            } else {
                 System.out.println("error");
                 break;
             }
         }
 
-        System.out.println("x:"+x+" y:" + y + " x*y=" + (x*y));
+        System.out.println("x:" + x + " y:" + y + " x*y=" + (x * y));
 
     }
 }

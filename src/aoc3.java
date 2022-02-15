@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class aoc3 {
     public static void main(String[] args) {
         String data = "110001101000\n" +
@@ -1002,17 +1005,24 @@ public class aoc3 {
                 "100011101100";
 
         String[] split = data.split("\n");
+        ArrayList<String> nsplit = new ArrayList<String>(Arrays.asList(split));
         String gamma = "";
         String epsilon = "";
         for (int i = 0; i < 12; i++) {
             int count0 = 0;
             int count1 = 0;
-            for (int j = 0; j < split.length; j++) {
-                if (split[j].charAt(i) == '0') {
+            for (int j = 0; j < nsplit.size(); j++) {
+                if (nsplit.get(j).charAt(i) == '0') {
                     count0++;
                 } else count1++;
             }
             if (count0 > count1) {
+                for (int j = 0; j < nsplit.size(); j++) {
+                    if (nsplit.get(j).charAt(i) == '1'){
+                        nsplit.remove(j);
+                        // TODO: 15.02.2022 entfernen geht so nicht
+                    }
+                }
                 gamma = gamma.concat("0");
                 epsilon= epsilon.concat("1");
             } else {
