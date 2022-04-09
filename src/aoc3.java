@@ -1038,7 +1038,6 @@ public class aoc3 {
         int ep = Integer.parseInt(epsilon,2);
 
         System.out.println("ga:" + ga + " ep:" + ep + "\n*:" + (ga*ep));
-
     }
 
 }
